@@ -15,14 +15,10 @@ const images = [
 
 const list = document.querySelector(".gallery");
 
+const imagesArr = images.map((image) => {
+  return `<li><img src="${image.url}" alt="${image.alt}"></li>;`
+}).join('');
+
+list.insertAdjacentHTML('beforeend', imagesArr);
 list.style.display = "flex";
-list.style.gap = '20px'
-
-images.forEach((item) => {
-  list.insertAdjacentHTML(
-    "beforeEnd",
-    `<li style="list-style: none;"><img src="${item.url}" alt="${item.alt}" style="width: 200px;"></li>`
-  );
-});
-
-console.log(list);
+list.style.gap = '20px';
